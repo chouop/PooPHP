@@ -1,27 +1,32 @@
 <?php
 require_once("config.php");
+//include("init.php");
 class Database {
 //variabel connection.
 public $connection;
+
+//create the constructor of class Database
+function __construct(){
+
+		$this -> connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+	
+}
 //create method open_db_connection.
 public function open_db_connection(){
-	$connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-//Test the connection by mysqli_connect().
-/*if($connection) {
-echo "true";
-}else {
-	echo "die";
-}*/
-		if ($connection->connect_error) {
-    		echo 'connexion impossible... :'.$connection->connect_error;
+	
+
+		if ($this->connection->connect_error) {//si la connection a la base de donnée est imposible alors:
+    		echo 'connexion impossible... :'.$this->connection->connect_error;
 		}
-	else {
-   		 echo 'connexion reussie : '.$connection->host_info;
+	else {//si la connection est possible alors:
+   		 echo 'connexion reussie : '.$this->connection->host_info;
 		}
 	}
+
+//To develop.
 }
-$str = new Database();
-$str-> open_db_connection(); 
-//Test method open_db_connection.
+//creation d'un objet database
+$database = new Database();
+
 
 ?>
