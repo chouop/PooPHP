@@ -1,6 +1,6 @@
 <?php
 include("database.php");
-if($database->connection) {
-echo "true";
-}
+$database = new Database();
+$sql = "SELECT * FROM users";
+$database-> query($sql);
 ?>
