@@ -61,7 +61,14 @@ echo "<tr><td>";
 echo($row["id"]);
 echo("</td><td>");
 echo($row["username"]);
+echo("</td><td>");
+echo($row["password"]);
+echo("</td><td>");
+echo($row["first_name"]);
+echo("</td><td>");
+echo($row["last_name"]);
 echo("</td></tr>\n");
+
 }
 echo "</table>\n";
 			
