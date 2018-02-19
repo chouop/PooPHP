@@ -53,6 +53,18 @@ echo("</td></tr>\n");
 echo "</table>\n";
 }
 
+private static function instantation($the_record){
+//you can use the same code that I provide you in the ‘Assigning
+//Array Values to Object Properties’ part.
+//To develop.
+	foreach ($the_record as $key => $value) {
+	
+		# code...
+		$the_record -> $key = $value;
+	}
+	return $the_record;
+
+	}
 }
 
 ?>
