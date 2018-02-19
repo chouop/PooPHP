@@ -1,5 +1,6 @@
 <?php
-include("CreateUser.php");
+include("user.php");
+
 /*$database = new Database();
 
 $valeur= escape_string("1");
