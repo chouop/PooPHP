@@ -2,6 +2,12 @@
 require_once("database.php");
 
 class User {
+	//Declaration of properties.
+public $id;
+public $username;
+public $password;
+public $first_name;
+public $last_name;
 //This method find all user in database.
 public static function find_all_users(){
 global $database;
