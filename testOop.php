@@ -18,6 +18,7 @@ $user->username = $found_user["username"];
 $user->password = $found_user["password"];
 $user->first_name = $found_user["first_name"];
 $user->last_name = $found_user["last_name"];
-echo $user->id;
+//echo $user->id;
+echo $user ->username;
 
 ?>

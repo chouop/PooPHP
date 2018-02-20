@@ -33,10 +33,12 @@ global $database;
 
  $result= $database -> query($sql);
  //if(mysqli_num_rows($result)>0){
-	echo'<table width="200" border="1" cellspacing="0" cellpadding="1">'."\n";
+	//echo'<table width="200" border="1" cellspacing="0" cellpadding="1">'."\n";
 
+ 	$tableau= array();
 	while ($row = mysqli_fetch_array($result)){//pour chaque cellule de mon tableau je recupere la ligne
-
+		$tableau[] = self::instantation($row);
+/*
 echo "<tr><td>";
 echo($row["id"]);
 echo("</td><td>");
@@ -48,11 +50,12 @@ echo($row["first_name"]);
 echo("</td><td>");
 echo($row["last_name"]);
 echo("</td></tr>\n");
-
+*/
 }
-echo "</table>\n";
+//echo "</table>\n";
+return $tableau;
 }
-
+/*
 private static function instantation($the_record){
 //you can use the same code that I provide you in the ‘Assigning
 //Array Values to Object Properties’ part.
@@ -64,6 +67,35 @@ private static function instantation($the_record){
 	}
 	return $the_record;
 
+	}*/
+	public static function instantation($the_record){
+//Another way to create user object inside of the user class.
+$the_object = new self;
+//To develop by using a loop.
+//In your loop you must verify that your object has this
+//attribute, so you must to create a new method which name is
+//has_the_attribute(). You can
+
+foreach ($the_record as $the_attribute => $value) {
+	
+		if ($the_object ->has_the_attribute($the_attribute)){
+		
+		$the_object -> $the_attribute = $value;
+	}
+	return $the_object;
+
+	}
+
+}
+
+public function has_the_attribute($the_attribute){
+//get_object_vars — Gets the properties of the given object. Here
+//is the class user
+$object_properties = get_object_vars($this);
+//array_key_exists — Checks if the given key or index exists in
+//the array
+return array_key_exists($the_attribute,
+$object_properties);
 	}
 }
 
